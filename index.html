@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAYIL | Guía turística de Nuevo Chimbote</title>
+<style>
+:root{--azul:#123f5a;--turquesa:#2bb3b1;--verde:#3f9275;--amarillo:#f5c84b;--fondo:#f5faf9;--texto:#17323e;--gris:#6b7e86;--blanco:#fff;--borde:#dce9e6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:var(--fondo);color:var(--texto)}
+button,input,select{font:inherit}button,a{cursor:pointer}.container{width:min(1150px,92%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--borde);position:sticky;top:0;z-index:20}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:900;color:var(--azul)}
+.logoIcon{width:43px;height:43px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center;position:relative}
+.logoIcon:after{content:"";width:7px;height:7px;border-radius:50%;background:var(--turquesa);position:absolute;right:6px;top:7px;box-shadow:-12px 5px var(--turquesa),-22px 0 var(--turquesa),-27px 8px var(--turquesa)}
+nav{display:flex;gap:4px;align-items:center;flex-wrap:wrap}nav button{border:0;background:transparent;padding:9px 11px;border-radius:10px;color:#48636e;font-weight:700}nav button:hover{background:#e9f7f5;color:var(--azul)}
+.menu{display:none;border:0;background:#e9f7f5;padding:10px;border-radius:10px}
+.hero{padding:58px 0 48px;background:linear-gradient(135deg,#e8f8f5,#f8fbfa 55%,#e7f1f6)}
+.heroGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:center}.eyebrow{display:inline-block;padding:8px 13px;border-radius:999px;background:#fff;color:var(--verde);font-weight:800;border:1px solid var(--borde)}
+h1{font-size:clamp(40px,6vw,68px);line-height:.98;letter-spacing:-2px;color:var(--azul);margin:18px 0}h2{font-size:31px;color:var(--azul);margin:0 0 8px}h3{color:var(--azul);margin:0 0 7px}
+.lead{font-size:18px;line-height:1.6;color:#59727c;max-width:680px}
+.search{display:flex;background:#fff;padding:7px;border:1px solid var(--borde);border-radius:18px;box-shadow:0 12px 35px #123f5a14;margin-top:23px}.search input{flex:1;border:0;outline:0;padding:13px}.btn{border:0;background:var(--azul);color:#fff;padding:12px 17px;border-radius:12px;font-weight:800}.btn:hover{transform:translateY(-1px)}.btn.alt{background:#e4f7f4;color:var(--azul)}.btn.yellow{background:var(--amarillo);color:var(--azul)}.btn.white{background:#fff;color:var(--azul);border:1px solid var(--borde)}
+.heroVisual{background:#fff;border-radius:28px;padding:20px;box-shadow:0 12px 35px #123f5a14}.scene{height:280px;border-radius:21px;position:relative;overflow:hidden;background:linear-gradient(#bcebe8 0 46%,#5fc0b7 46% 59%,#dbeacc 59%)}
+.sun{position:absolute;right:27px;top:25px;width:57px;height:57px;background:var(--amarillo);border-radius:50%}.sea{position:absolute;left:-5%;right:-5%;bottom:58px;height:85px;background:#fff;border-radius:50% 50% 0 0/45% 45% 0 0;opacity:.7}
+.house{position:absolute;bottom:54px;width:53px;height:50px;background:#fff;border-radius:5px}.house:before{content:"";position:absolute;top:-22px;border-left:26px solid transparent;border-right:26px solid transparent;border-bottom:24px solid var(--azul)}
+.h1{left:38px}.h2{left:105px;height:64px}.h3{left:176px;height:43px}
+.fish{position:absolute;width:38px;height:17px;background:var(--azul);border-radius:50%;transform:rotate(-8deg)}.fish:after{content:"";position:absolute;right:-11px;top:1px;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:12px solid var(--azul)}
+.f1{left:27px;top:35px}.f2{left:94px;top:73px}.f3{left:160px;top:42px}.f4{right:52px;top:92px}.f5{right:103px;top:42px}.f6{right:22px;top:150px}.f7{left:130px;top:150px}
+.section{padding:58px 0}.head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:22px}.muted{color:var(--gris)}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{background:#fff;border:1px solid var(--borde);border-radius:18px;padding:17px 8px;text-align:center;font-weight:800;color:var(--azul);transition:.2s}.cat:hover{background:#e9f7f5;transform:translateY(-2px)}.cat span{font-size:27px;display:block;margin-bottom:7px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.card{background:#fff;border:1px solid var(--borde);border-radius:20px;overflow:hidden;box-shadow:0 5px 18px #123f5a0b}.photo{height:190px;background:#dcecf0;display:flex;align-items:end;padding:14px;position:relative;background-size:cover;background-position:center;overflow:hidden}.photo:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(8,35,48,.55) 100%)}.photo .tag,.photo .heart{z-index:2}.photo .tag{position:relative}.tag{background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800;color:var(--azul)}.heart{position:absolute;right:12px;top:12px;border:1px solid var(--borde);background:#fff;border-radius:50%;width:38px;height:38px;color:#788d95;font-size:18px}.heart.on{color:#d5576c;background:#fff0f2}.body{padding:17px}.body p{color:var(--gris);line-height:1.5;font-size:14px}.meta{display:flex;flex-direction:column;gap:7px;font-size:13px;color:#58717b;margin:12px 0}.actions{display:flex;gap:8px;flex-wrap:wrap}.small{padding:9px 11px;font-size:13px}
+.banner{background:var(--azul);color:#fff;border-radius:25px;padding:29px;display:flex;justify-content:space-between;align-items:center;gap:20px}.banner h2{color:#fff}.banner p{color:#d8e8ed}
+.map{height:340px;border-radius:25px;background:#d9ece8;border:1px solid var(--borde);position:relative;overflow:hidden;background-image:linear-gradient(25deg,transparent 47%,#ffffff99 48%,transparent 50%),linear-gradient(115deg,transparent 47%,#ffffff99 48%,transparent 50%);background-size:90px 90px}.pin{position:absolute;width:36px;height:36px;border-radius:50% 50% 50% 0;background:var(--azul);color:#fff;transform:rotate(-45deg);display:grid;place-items:center}.pin b{transform:rotate(45deg)}.p1{left:25%;top:30%}.p2{left:52%;top:55%}.p3{left:70%;top:28%}.p4{left:42%;top:72%}.mapLabel{position:absolute;left:20px;bottom:20px;background:#fff;padding:10px 13px;border-radius:12px;font-weight:800}
+.panel{background:#fff;border:1px solid var(--borde);border-radius:20px;padding:20px}.listItem{padding:13px 0;border-bottom:1px solid var(--borde)}.listItem:last-child{border:0}
+footer{background:#092f43;color:#d7e7ec;padding:38px 0;margin-top:45px}.footerGrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:25px}footer h3{color:#fff}footer a{display:block;color:#d7e7ec;margin:7px 0}
+.modal{border:0;border-radius:22px;max-width:570px;width:92%;padding:0;box-shadow:0 25px 70px #0004}.modal::backdrop{background:#062b3a88}.modalBox{padding:25px}.toast{position:fixed;right:18px;bottom:18px;background:var(--azul);color:#fff;padding:13px 17px;border-radius:13px;opacity:0;transform:translateY(20px);transition:.25s;z-index:50}.toast.show{opacity:1;transform:none}
+@media(max-width:850px){.heroGrid{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(3,1fr)}nav{display:none}.menu{display:block}.nav.open nav{display:flex;position:absolute;top:72px;left:0;right:0;background:#fff;padding:10px;box-shadow:0 10px 25px #0001;flex-direction:column}.nav.open nav button{width:100%}.footerGrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.search{flex-direction:column}.search .btn{width:100%}.banner{flex-direction:column;align-items:flex-start}.footerGrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="container nav" id="nav">
+<a class="logo" href="#inicio"><span class="logoIcon">H</span>JAYIL</a>
+<button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+<nav>
+<button onclick="go('inicio')">Inicio</button><button onclick="go('destinos')">Destinos</button><button onclick="go('mapa')">Mapa</button><button onclick="go('favoritos')">♥ Favoritos</button><button onclick="go('calendario')">📅 Mi ruta</button>
+</nav></div></header>
+
+<main>
+<section class="hero" id="inicio"><div class="container heroGrid">
+<div><span class="eyebrow">📍 Guía turística local</span><h1>Descubre<br><span style="color:var(--turquesa)">Nuevo Chimbote.</span></h1>
+<p class="lead">Encuentra lugares para visitar, comer y hospedarte. Guarda tus favoritos, consulta ubicaciones y organiza tu recorrido desde un solo lugar.</p>
+<form class="search" onsubmit="buscar(event)"><input id="search" placeholder="¿Qué estás buscando? Ej.: playa, restaurante, hotel..."><button class="btn">🔎 Buscar</button></form>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:15px"><button class="btn yellow" onclick="go('destinos')">Explorar lugares</button><button class="btn alt" onclick="go('calendario')">📅 Planear mi visita</button></div></div>
+<div class="heroVisual"><div class="scene"><div class="sun"></div><div class="sea"></div><div class="house h1"></div><div class="house h2"></div><div class="house h3"></div><div class="fish f1"></div><div class="fish f2"></div><div class="fish f3"></div><div class="fish f4"></div><div class="fish f5"></div><div class="fish f6"></div><div class="fish f7"></div></div><p style="margin:13px 0 0"><b>JAYIL</b> · mar · ciudad · aventura</p></div>
+</div></section>
+
+<section class="section"><div class="container"><div class="head"><div><h2>¿Qué quieres encontrar?</h2><p class="muted">Accede rápidamente a cada categoría.</p></div></div>
+<div class="categories">
+<button class="cat" onclick="filtrar('playas')"><span>🏖️</span>Playas</button><button class="cat" onclick="filtrar('hoteles')"><span>🏨</span>Hoteles</button><button class="cat" onclick="filtrar('restaurantes')"><span>🍽️</span>Restaurantes</button><button class="cat" onclick="filtrar('naturaleza')"><span>🌿</span>Naturaleza</button><button class="cat" onclick="filtrar('parques')"><span>🌳</span>Parques</button><button class="cat" onclick="go('mapa')"><span>🗺️</span>Mapa</button>
+</div></div></section>
+
+<section class="section" id="destinos"><div class="container"><div class="panel" style="margin-bottom:18px"><b>📸 Fotos reales</b><br><span class="muted">Las fichas usan fotografías encontradas en fuentes turísticas, municipales y directorios. Algunas fuentes pueden cambiar sus imágenes o requerir conexión a Internet.</span></div><div class="container"><div class="head"><div><h2>Destinos y servicios</h2><p class="muted">Explora las opciones disponibles.</p></div><button class="btn alt" onclick="mostrarTodos()">Ver todos</button></div><div class="grid" id="cards"></div></div></section>
+
+<section class="section" id="mapa"><div class="container"><div class="head"><div><h2>Mapa de ubicación</h2><p class="muted">Usa “Ver ubicación” para abrir el lugar en Google Maps.</p></div></div><div class="map"><div class="pin p1"><b>H</b></div><div class="pin p2"><b>H</b></div><div class="pin p3"><b>H</b></div><div class="pin p4"><b>H</b></div><div class="mapLabel">🗺️ Nuevo Chimbote · mapa de referencia</div></div></div></section>
+
+<section class="section" id="favoritos"><div class="container"><div class="head"><div><h2>♥ Mis favoritos</h2><p class="muted">Guarda los lugares que quieras visitar.</p></div></div><div class="grid" id="favCards"></div></div></section>
+
+<section class="section" id="calendario"><div class="container"><div class="head"><div><h2>📅 Mi ruta</h2><p class="muted">Elige una fecha y agrega lugares a tu recorrido.</p></div></div>
+<div class="panel" style="margin-bottom:18px"><label><b>Fecha de visita</b></label><input id="fecha" type="date" style="display:block;margin-top:8px;padding:11px;border:1px solid var(--borde);border-radius:10px"></div>
+<div class="grid" id="routeCards"></div><div class="panel" style="margin-top:20px"><h3>Mi itinerario</h3><div id="itinerary"></div></div></div></section>
+
+<section class="section"><div class="container"><div class="banner"><div><h2>Tu viaje empieza aquí.</h2><p>Explora, guarda y organiza tus lugares favoritos en pocos pasos.</p></div><button class="btn yellow" onclick="go('destinos')">Empezar a explorar</button></div></div></section>
+</main>
+
+<footer><div class="container footerGrid"><div><h3>JAYIL</h3><p>Guía turística digital para descubrir Nuevo Chimbote de manera rápida y sencilla.</p></div><div><h3>Explora</h3><a href="#destinos">Destinos</a><a href="#mapa">Mapa</a><a href="#favoritos">Favoritos</a></div><div><h3>Planifica</h3><a href="#calendario">Mi ruta</a><a href="#inicio">Inicio</a></div></div><div class="container" style="margin-top:25px;font-size:13px">Proyecto escolar · 4.º año de secundaria</div></footer>
+
+<dialog class="modal" id="modal"><div class="modalBox"><h2 id="modalTitle"></h2><div id="modalBody"></div><button class="btn white" onclick="modal.close()">Cerrar</button></div></dialog>
+<div class="toast" id="toast"></div>
+
+<script>
+const lugares=[
+{id:'dorado',n:'Playa El Dorado',c:'playas',i:'🏖️',d:'Lugar costero para disfrutar del paisaje y conocer el litoral de la zona.',l:'Playa El Dorado, Nuevo Chimbote, Áncash',h:'Consultar horario actual',m:'Playa El Dorado Nuevo Chimbote',img:'https://www.muninuevochimbote.gob.pe/tudistrito/turismo',src:'Foto: Municipalidad Distrital de Nuevo Chimbote'},
+{id:'vesique',n:'Playa Vesique',c:'playas',i:'🌊',d:'Playa de la costa de Áncash para disfrutar del paisaje marino.',l:'Vesique, Áncash',h:'Consultar horario actual',m:'Playa Vesique Ancash',img:'https://d3fphkxyf5o5bm.cloudfront.net/image-resize/format%3Dwebp%2Cw%3D720/QwRY54Li1HMwD7oNfpgdVd4rIUQ0LM9zkIBYPzKK4g',src:'Foto: fuente turística consultada'},
+{id:'poza',n:'La Poza',c:'playas',i:'🌴',d:'Espacio costero para recorrer y conocer junto al mar.',l:'Nuevo Chimbote, Áncash',h:'Consultar horario actual',m:'La Poza Nuevo Chimbote',img:'https://i.pinimg.com/736x/a3/39/c4/a339c44ba77537afba29cbf94284c443.jpg',src:'Foto: fotografía publicada en Pinterest'},
+{id:'villa',n:'Humedales de Villa María',c:'naturaleza',i:'🦆',d:'Zona natural de importancia local para observar paisaje y biodiversidad.',l:'Villa María, Chimbote/Nuevo Chimbote',h:'Consultar horario actual',m:'Humedales de Villa Maria Chimbote',img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Humedales_Nuevo_Chimbote.jpg',src:'Foto: Wikimedia Commons · CC BY-SA 4.0'},
+{id:'familia',n:'Óvalo La Familia',c:'parques',i:'🌳',d:'Espacio emblemático de Nuevo Chimbote, recientemente renovado, con áreas verdes y fuentes ornamentales.',l:'Nuevo Chimbote, Áncash',h:'Acceso público; consultar condiciones',m:'Parque La Familia Nuevo Chimbote',img:'https://www.hotelaguilareal.com.pe/infotur.php',src:'Foto: Hotel Águila Real · imagen del Óvalo La Familia'},
+{id:'plaza',n:'Plaza Mayor de Nuevo Chimbote',c:'parques',i:'🏛️',d:'Espacio público representativo de la ciudad.',l:'Nuevo Chimbote, Áncash',h:'Acceso público',m:'Plaza Mayor Nuevo Chimbote',img:'https://d3ekkvinch1ig5.cloudfront.net/park/187437774.jpg',src:'Foto: fuente turística consultada'},
+{id:'costa',n:'Costa del Inka Hotel',c:'hoteles',i:'🏨',d:'Opción de alojamiento para visitantes de la zona.',l:'Nuevo Chimbote, Áncash',h:'Consultar disponibilidad',m:'Costa del Inka Hotel Nuevo Chimbote',img:'https://images.trvl-media.com/lodging/18000000/17250000/17246800/17246792/e51581b2.jpg?impolicy=resizecrop&ra=fill&rh=575&rw=575',src:'Foto: Hoteles.com'},
+{id:'buenos',n:'Hotel Buenos Aires',c:'hoteles',i:'🛏️',d:'Alternativa de hospedaje en el entorno urbano.',l:'Nuevo Chimbote, Áncash',h:'Consultar disponibilidad',m:'Hotel Buenos Aires Nuevo Chimbote',img:'https://www.tripadvisor.com/Hotel_Review-g1597002-d2205071-Reviews-Hotel_Buenos_Aires-Chimbote_Ancash_Region.html',src:'Ver galería real: Tripadvisor'},
+{id:'muelle',n:'Muelle 27',c:'restaurantes',i:'🍽️',d:'Alternativa gastronómica para conocer propuestas locales.',l:'Nuevo Chimbote, Áncash',h:'Consultar horario actual',m:'Muelle 27 Nuevo Chimbote',img:'https://www.gurugo.pe/_next/image?q=65&url=https%3A%2F%2Fwww.paginasamarillas.com.pe%2Fimagenes%2Fpe%2Fimages%2Fad_id_24712%2Fimage_id_139404.jpeg&w=3840',src:'Foto: GuruGo / Páginas Amarillas'},
+{id:'porton',n:'Portón Gaucho',c:'restaurantes',i:'🥩',d:'Restaurante con una propuesta gastronómica variada.',l:'Nuevo Chimbote, Áncash',h:'Consultar horario actual',m:'Porton Gaucho Nuevo Chimbote',img:'https://4.bp.blogspot.com/-7tk62y6cz_8/V_BtDkd_q_I/AAAAAAAAAO8/zlTM9J7Jv9wbE3DFewoaTwNohYg0TEwlQCK4B/s1600/006.jpg',src:'Foto: ChimboteGuía'}
+];
+let fav=JSON.parse(localStorage.getItem('jayilFav')||'[]'), plan=JSON.parse(localStorage.getItem('jayilPlan')||'[]');
+const $=s=>document.querySelector(s); const save=()=>{localStorage.setItem('jayilFav',JSON.stringify(fav));localStorage.setItem('jayilPlan',JSON.stringify(plan))};
+const label=c=>({playas:'Playa',hoteles:'Hotel',restaurantes:'Restaurante',naturaleza:'Naturaleza',parques:'Parque'})[c];
+const map=p=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.m);
+function toast(x){let t=$('#toast');t.textContent=x;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)}
+function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});document.getElementById('nav').classList.remove('open')}
+function card(p,route=false){return `<article class="card"><div class="photo" style="background-image:url('${p.img}')"><span class="tag">${p.i} ${label(p.c)}</span><button class="heart ${fav.includes(p.id)?'on':''}" onclick="toggleFav('${p.id}')">♥</button></div><div class="body"><h3>${p.n}</h3><p>${p.d}</p><div class="meta"><span>📍 ${p.l}</span><span>🕒 ${p.h}</span></div><div class="actions"><a class="btn small" target="_blank" href="${map(p)}">📍 Ubicación</a><button class="btn alt small" onclick="details('${p.id}')">Ver más</button>${route?`<button class="btn yellow small" onclick="addPlan('${p.id}')">📅 Añadir</button>`:''}</div><small class="muted" style="display:block;margin-top:10px">${p.src||''}</small></div></article>`}
+function render(arr=lugares){$('#cards').innerHTML=arr.map(p=>card(p)).join('');$('#routeCards').innerHTML=arr.map(p=>card(p,true)).join('');let a=lugares.filter(p=>fav.includes(p.id));$('#favCards').innerHTML=a.length?a.map(p=>card(p)).join(''):'<div class="panel" style="grid-column:1/-1;text-align:center;color:var(--gris)">Aún no tienes favoritos. Pulsa ♥ en un lugar para guardarlo.</div>';$('#itinerary').innerHTML=plan.length?plan.map((x,i)=>{let p=lugares.find(y=>y.id===x.id);return `<div class="listItem"><b>${p.n}</b><br><span class="muted">📅 ${x.date}</span> <button class="btn white small" onclick="removePlan(${i})">Quitar</button></div>`}).join(''):'<p class="muted">Todavía no tienes lugares en tu ruta.</p>'}
+function toggleFav(id){let i=fav.indexOf(id);if(i>=0){fav.splice(i,1);toast('Eliminado de favoritos')}else{fav.push(id);toast('Guardado en favoritos ♥')}save();render()}
+function addPlan(id){let date=$('#fecha').value;if(!date){toast('Primero selecciona una fecha');return}plan.push({id,date});save();toast('Añadido a tu ruta');render()}
+function removePlan(i){plan.splice(i,1);save();render()}
+function details(id){let p=lugares.find(x=>x.id===id);$('#modalTitle').textContent=p.n;$('#modalBody').innerHTML=`<img src="${p.img}" alt="${p.n}" style="width:100%;max-height:300px;object-fit:cover;border-radius:16px;margin-bottom:14px" onerror="this.style.display='none'"><p>${p.d}</p><p><b>📍 Ubicación:</b> ${p.l}</p><p><b>🕒 Atención:</b> ${p.h}</p><p class="muted" style="font-size:12px">${p.src||''}</p><a class="btn" target="_blank" href="${map(p)}">Abrir ubicación en Google Maps</a>`;$('#modal').showModal()}
+function filtrar(c){render(lugares.filter(p=>p.c===c));go('destinos')}
+function mostrarTodos(){render();go('destinos')}
+function buscar(e){e.preventDefault();let q=$('#search').value.toLowerCase().trim();if(!q)return;let a=lugares.filter(p=>(p.n+' '+p.c+' '+p.d+' '+p.l).toLowerCase().includes(q));if(!a.length){toast('No encontramos ese lugar. Prueba: playa, hotel, restaurante o naturaleza.');return}render(a);go('destinos')}
+render();
+</script>
+</body>
+</html>
